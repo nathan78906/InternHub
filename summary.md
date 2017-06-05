@@ -1,5 +1,5 @@
 **Project Objectives**  
-Building a job portal which is accessible by many students(both co-op and non co-op) from various universities across Ontario and also giving access to employers who are willing to employ students. Admins should be able to administor interactions between students and employers  
+Building a job portal which is accessible by many students(both co-op and non co-op) from various universities and high schools across Ontario and also giving access to employers who are willing to employ students. Admins should be able to administor interactions between students and employers  
 **Key Users**   
 Students(co-op, non co-op and high school)    
 Employers (searching for potential employees)   
