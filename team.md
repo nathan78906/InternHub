@@ -16,6 +16,6 @@ Name: Nathan Seebarran
 UtorID: seebarr3  
 Student #: 1002477893  
 
-Name: Salman Sharif
-UtorID: sharif53
-Student #: 1002575331
+Name: Salman Sharif  
+UtorID: sharif53  
+Student #: 1002575331  
