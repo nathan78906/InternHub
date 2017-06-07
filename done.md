@@ -1,1 +1,1 @@
-
+Our project is done when our project fully statisfies our success criteria defined in the file, summary.md, in which features and functions have been properly tested, optimized, and performs correctly as expected to meet user requirements.
