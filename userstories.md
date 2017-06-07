@@ -38,3 +38,6 @@ As an Admin, I want to be able to see the number of students per school per job 
 
 As an Admin, I want to be able to contact employers so that I can easily communicate with them
 - When I'm viewing an employer profile, I should be able to send a message over to an employer. 
+
+As an Admin, I want to be able to add and delete companies and students so that I can moderate users and companies
+- When I'm viewing an employer or user profile, I should be able to edit or delete their profiles.
