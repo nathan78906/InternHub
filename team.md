@@ -23,3 +23,7 @@ Student #: 1002575331
 Name: Osarumwense Ize-Iyamu  
 UtorID: iyamuos2  
 Student #: 1001508665  
+
+Name: Omid Najmeddini  
+UtorID: najmeddi  
+Student #: 1002358441  
