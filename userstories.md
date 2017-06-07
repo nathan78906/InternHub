@@ -30,3 +30,11 @@ As an Employer, I want to be able to control the visibility of my job postings s
 As an Employer, I want to be able to set a time to automatically release the job posting so that I can release my job postings at midnight without having to be awake. 
 - When I'm posting a job, I should be given a calendar for when to relese the job. 
 
+As an Admin, I want to be able to delete or hide job postings that lack enough information
+- When I'm viewing a job, I should be given a button to hide/delete the job posting and if hidden it should be only visible to the employer and admin
+
+As an Admin, I want to be able to see the number of students per school per job position so that I know which schools are using the site
+- When I'm viewing a job, I should be able to see how many students applied to that position and where they're from.
+
+As an Admin, I want to be able to contact employers so that I can easily communicate with them
+- When I'm viewing an employer profile, I should be able to send a message over to an employer. 
