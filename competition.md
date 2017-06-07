@@ -6,12 +6,17 @@ Our competition can be identified as any university's co-op job site. Some examp
 ![alt text](https://github.com/UTSCCSCC01/Better-Jobs/blob/master/images/competition.md/Screenshot%20from%202017-06-05%2016-28-37.png "CSM Screenshot")
 
 CSM - Career Services Manager
+- CSM is a university co-op job site for students at the University of Toronto Scarborough. 
 
 ![alt text](https://github.com/UTSCCSCC01/Better-Jobs/blob/master/images/competition.md/Screenshot%20from%202017-06-05%2016-29-14.png "CLN Screenshot")
 
 CLN - Career Learning Network
+- CLN is a university co-op job site for students at across all University of Toronto campuses.
 
 ![alt text](https://github.com/UTSCCSCC01/Better-Jobs/blob/master/images/competition.md/Screenshot%20from%202017-06-05%2016-59-20.png "TalentEgg Screenshot")
+
+TalentEgg
+- TalentEgg is a job site which anyone can access, and is tailored to student jobs and jobs for recent graduates.
 
 Our product is different because it is meant for all students in Ontario looking for a job, whereas the competition above is restricted to students attending respective schools. TalentEgg is for all students but it does not allow students to directly apply through their site, it only provides links to employer sites.  
 
