@@ -1,7 +1,12 @@
 # process.md
 
 ### Team organization
-TODO:
+Our team is divided as follows:
+1. Backend(Python, Django):Omid, Sal, Osaru  
+2. Middleware: Osaru  
+3. Frontend(HTML, CSS, Javascript): Venkada, Aiyaz  
+4. Backend/Database(MongoDB): Nathan, Mak  
+5. UI/UX: Omid, Sal  
 
 ### Decision making
 The decision making process was simple as none of us had anything in mind going into our first meeting, so we agreed on the first thing that came up - to create a jobs listing site. Future decisions will be made during meetings and over Slack.
