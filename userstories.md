@@ -1,13 +1,16 @@
 # User Stories
 
 As a Student, I want to be able to register for a student account, so that I can login.
+- When I go to register an account, I should be able to choose a username and password and to enter my account information.
 
 As a Student, I want to be able to login to a student account, so that I can perform student functions. 
+- When logged in as a student, I should only have access to student features such as viewing listings and applying to listings.
 
 As an Employer, I want to be able to login to an employer's account, so that I can perform employer functions.  
+- When logged in as an employee, I should have access to employer features such as posting listings and viewing applicants.
 
 As an Admin, I want to be able to login to an admin account, so that I can perform admin functions.
-- An admin account should have control over listings and other accounts.
+- When logged in as an admin, I should have access to all features.
 
 As an Employer, I want to be able to post open positions for students to view.
 - Given a job description, when I login to the application, then I should be able to post my job.
