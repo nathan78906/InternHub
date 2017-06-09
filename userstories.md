@@ -1,5 +1,12 @@
 # User Stories
 
+As a Student, I want to be able to login to a student account. 
+
+As an Employer, I want to be able to login to an employer's account.  
+
+As an Admin, I want to be able to login to an admin account.
+- An admin account should have control over listings and other accounts.
+
 As an Employer, I want to be able to post open positions for students to view.
 - Given a job description, when I login to the application, then I should be able to post my job.
 
