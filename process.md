@@ -1,5 +1,3 @@
-# process.md
-
 ### Team organization
 Our team is divided as follows:
 1. Backend(Python, Django):Omid, Sal, Osaru  
