@@ -29,8 +29,8 @@
 10. As an Employer, I want to be able to control the visibility of my job postings so that I can pre-upload them and release them when ready. 
 - When I'm on a job posting or posting a job, I should be given a toggle to "go live" with my job posting. 
 
-11. As an Admin, I want to be able to delete or hide job postings that lack enough information
-- When I'm viewing a job, I should be given a button to hide/delete the job posting and if hidden it should be only visible to the employer and admin
+11. As an Admin, I want to be able to delete job postings
+- When I'm viewing a job, I should be given a button delete the job posting from the site
 
 12. As an Admin, I want to be able to add and delete companies and students so that I can moderate users and companies
 - When I'm viewing an employer or user profile, I should be able to edit or delete their profiles.
