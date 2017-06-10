@@ -13,7 +13,7 @@ The decision making process was simple as none of us had anything in mind going 
 Our user stories were prioritized during our meetings on Slack by voting each story a number in the range [1- 120]. Any group member that had outlying numbers discussed on why they think differently and an appropriate decision was made on prioritizing according to the discussions.
 
 ### Meetings
-Our group got together during the lectures. We first communicated on Facebook, before moving to Slack after our meeting. In our first meeting we decided on what we were going to do for the project. We only met in person twice for sprint0, but kept in contact online through Slack.
+Our meetings were held every Monday from 5-7pm before the lecture. We first communicated on the Facebook Messenger platform before deciding to move to Slack after our meeting. In our first meeting we brainstormed and decided on an idea for the project. We met in person twice for sprint0, but kept in contact online through Slack.
 
 ### Next phase
-We will be increasing the frequency of our meetings for the next phases as we will need to communicate much more as workload increases. This will allow team members to get any help as needed as we tackle our objectives for the next phase.
+We will be increasing the frequency of our meetings for the next phases as we will need to communicate much more as workload increases. This will allow team members to get any help as needed as we tackle our objectives for the next phase. This will also increase colloboration with development of our code base.
