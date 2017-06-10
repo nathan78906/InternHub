@@ -1,1 +1,0 @@
-Our project is completed when it is in compliance with our success criteria defined in the file, summary.md, in which implemented methods, functions, and features have been properly tested, optimized, and performs correctly as expected to meet user statisfaction.
