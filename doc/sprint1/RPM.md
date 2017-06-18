@@ -1,6 +1,6 @@
 # Release Planning No 1
 
-Participants: Venkada Prasad, Salman Sharif, Omid Najmedini, Nathan Seebaran, Aiyaz Noor, Osaru Ize-Iyamu , Ewen Mak
+Participants: Venkada Prasad, Salman Sharif, Omid Najmedini, Nathan Seebaran, Aiyaz Noor, Osaru Ize-Iyamu , Ewen Mak  
 Meeting: June 17, 2017 17:00
 
 # Release Goals
@@ -16,6 +16,4 @@ Technology planning to use for this sprint: MongoDB, python, html/css
 with mock jobs and then using python script to display all the jobs in sorted order. This will satisfy user story no 1 and 3.
 2. Each job will be tagged with a skill therefore making it easier to be able to search jobs according to the users skill level. This
 feature will satisfy user story no 2.
-
-
 
