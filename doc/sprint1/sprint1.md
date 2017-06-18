@@ -1,4 +1,4 @@
-Metting(s):
+Meeting(s):
  
  Scrum Master:
  Attendees: Nathan, Osaru, Aiyaz, Sal, Omid, Venkada, Ewen
@@ -12,13 +12,13 @@ Conclusion(s):
     for the first time, and broke it down what features to code
   - The other aspect we wanted to start is having a database, therefore we were considering
     different applications to use, and agreeing to use Mongo
-  - We needed the database to be filled with ficitious job postings so that we could see
-    these postings in the front end portion of our website
+  - We needed the database to be filled with fictitious job postings so that we could see
+    these postings in the front-end portion of our website
 
 Backlog:
 
-  Overview: Implement the ability for students to view avalible job postings. The core idea that we
-  want to develop is to populate the database with job post objects and be avaible to take requests to
+  Overview: Implement the ability for students to view available job postings. The core idea that we
+  want to develop is to populate the database with job post objects and be available to take requests to
   display the job(s).
 
   User Stories:
@@ -38,4 +38,5 @@ Backlog:
       - Database(Mongo):
       - HTML/CSS: 
       - Prototype/Concepts: Omid
+
     
