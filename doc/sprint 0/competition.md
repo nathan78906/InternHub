@@ -1,7 +1,7 @@
 
 # competition.md
 
-Our competition can be identified as any university's co-op job site. Some examples of these are CSM(Career Services Manager at the University of Toronto Scarborough), CLN(Career Learning Network at the University of Toronto) and TalentEgg. 
+Our competition can be identified as any university's job site or student job site. Some examples of these are CSM(Career Services Manager at the University of Toronto Scarborough), CLN(Career Learning Network at the University of Toronto) and TalentEgg. 
 
 ![alt text](https://github.com/UTSCCSCC01/Better-Jobs/blob/master/images/competition.md/Screenshot%20from%202017-06-05%2016-28-37.png "CSM Screenshot")
 
