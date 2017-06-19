@@ -1,6 +1,5 @@
 Meeting(s):
  
- Scrum Master:
  Attendees: Nathan, Osaru, Aiyaz, Sal, Omid, Venkada, Ewen
  Time: June 16, 2017
  
@@ -35,8 +34,8 @@ Backlog:
     
     Task Breakdown:
       - Documentation:
-      - Database(Mongo):
-      - HTML/CSS: 
-      - Prototype/Concepts: Omid
+      - Database(Mongo)/Python:
+      - HTML/CSS/Javascript: Aiyaz 
+      - Prototype/Concepts: Salman, Omid
 
     
