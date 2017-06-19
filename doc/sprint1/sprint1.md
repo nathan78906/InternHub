@@ -1,9 +1,10 @@
 Scrum Meeting:
  
  Date: June 16, 2017 13:00-14:00
+ Attendees: Nathan, Osaru, Aiyaz, Salman, Omid, Venkada, Ewen
  
- Attendees: Nathan, Osaru, Aiyaz, Sal, Omid, Venkada, Ewen
- 
+ Date: June 19, 2017 17:00-18:00
+ Attendees: Nathan, Osaru, Aiyaz, Salman, Omid, Venkada, Ewen
  
 Conclusions:
   
@@ -15,6 +16,12 @@ Conclusions:
     different applications to use, and agreeing to use Mongo
   - We needed the database to be filled with fictitious job postings so that we could see
     these postings in the front-end portion of our website
+  - Problem was raised later on that Mongo was too difficult to set up in the given time
+    for the sprint, so we decided to move to SQL
+  - Created database in SQL by second scrum meeting and we needed to (1) use UI to create jobs
+    on the site and (2) Add the job to the datebase table. We plan to do (1) by using a script
+    instead of getting data via command line, and (2) by doing more research on Django and
+    continually test until we can successfully add jobs
 
 Backlog:
 
@@ -35,6 +42,6 @@ Backlog:
     
      Task Breakdown:
      - Documentation: Osaru, Venkada, Omid, Salman, Ewen
-     - Database(Mongo)/Python/Desing structure: Nathan, Osaru
+     - Database(Mongo/SQL)/Python/Desining Structure: Nathan, Osaru
      - Prototype/Concepts/Design: Salman, Omid
      - HTML/CSS/Javascript: Aiyaz, Venkada
