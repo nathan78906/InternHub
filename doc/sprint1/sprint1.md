@@ -1,9 +1,11 @@
-Meeting(s):
+Scrum Meeting:
+ 
+ Date: June 16, 2017 13:00-14:00
  
  Attendees: Nathan, Osaru, Aiyaz, Sal, Omid, Venkada, Ewen
- Time: June 16, 2017
  
-Conclusion(s):
+ 
+Conclusions:
   
   - Needed a way to split work to develop essential yet basic software
   - One question was how to make front end portion for the user (a student) to see,
@@ -19,23 +21,20 @@ Backlog:
   Overview: Implement the ability for students to view available job postings. The core idea that we
   want to develop is to populate the database with job post objects and be available to take requests to
   display the job(s).
-
+  
   User Stories:
-    
-    Priority: 30, Size: 5
+  - Priority: 30, Size: 5 
     As a Student, I want to be able to login to a student account, so that I can perform student functions.
-    
-    Priority: 110, Size: 8
+  
+  - Priority: 110, Size: 8
     As an Employer, I want to be able to post open positions for students to view.
-    
-    Priority: 60, Size: 2
+   
+   - Priority: 60, Size: 2
     As a Student, I want to be able to sort the job postings by required skill level so that I can
     apply to jobs suited for me.
     
-    Task Breakdown:
-      - Documentation:
-      - Database(Mongo)/Python:
-      - HTML/CSS/Javascript: Aiyaz 
-      - Prototype/Concepts: Salman, Omid
-
-    
+     Task Breakdown:
+     - Documentation: Osaru, Venkada, Omid, Salman, Ewen
+     - Database(Mongo)/Python/Desing structure: Nathan, Osaru
+     - Prototype/Concepts/Design: Salman, Omid
+     - HTML/CSS/Javascript: Aiyaz, Venkada
