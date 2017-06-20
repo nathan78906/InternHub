@@ -5,6 +5,7 @@
 # Table of Contents
 1. [CRC Cards](#crc-cards)
 2. [Software Architecture](#software-architecture)
+3. [System Decomposition](#system-decomposition)
 
 ## CRC Cards
 **User**  
