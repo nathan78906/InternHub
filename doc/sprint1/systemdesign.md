@@ -33,7 +33,38 @@
 - Collaborators:   
   * Handler
   
+  **Admin**
+- Superclass: User
+- Subclass: N/A
+- Responsibilities: 
+  * Knows administrative details
+- Collaborators:   
+  * Handler
   
+   **Job**
+- Superclass: User
+- Subclass: N/A
+- Responsibilities: 
+  * Knows skill level and other job details
+- Collaborators:   
+  * Handler
+  
+  **Handler**
+- Superclass: N/A
+- Subclass: N/A
+- Responsibilities: 
+  * Updates database
+  * Creates new job postings
+  * Displays job postings based on skill level
+  * Displays all job postings
+  * Communicates with controllers
+- Collaborators:   
+  * User
+  * Student
+  * Employer
+  * Admin
+  
+Note: More responsibilities and classes to be added in future sprints.
   
 ## Software Architecture 
 
