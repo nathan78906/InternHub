@@ -18,9 +18,7 @@ if py3:
     jobID = input("Enter a job ID: ")
     jobTitle = input("Enter the job title: ")
     desc = input("Enter the job description: ")
-    juniorBool = input("Is this a junior job?(True or False): ")
-    intermediateBool = input("Is this an intermediate job?(True or False): ")
-    seniorBool = input("Is this a senior job?(True or False): ")
+    skill = input("Enter the job skill level(junior, intermediate, or senior): ")
     employerName = input("Enter company name: ")
 else:
     while line != "new job":
@@ -29,10 +27,21 @@ else:
     jobID = raw_input("Enter a job ID: ")
     jobTitle = raw_input("Enter the job title: ")
     desc = raw_input("Enter the job description: ")
-    juniorBool = raw_input("Is this a junior job?(True or False): ")
-    intermediateBool = raw_input("Is this an intermediate job?(True or False): ")
-    seniorBool = raw_input("Is this a senior job?(True or False): ")
+    skill = raw_input("Enter the job skill level(junior, intermediate, or senior): ")
     employerName = raw_input("Enter company name: ")
+
+if skill == "junior":
+    juniorBool = True
+    intermediateBool = False
+    seniorBool = False
+elif skill == "intermediate":
+    juniorBool = False
+    intermediateBool = True
+    seniorBool = False
+elif skill == "senior":
+    juniorBool = False
+    intermediateBool = False
+    seniorBool = True
 
 a = Job(jobId=int(jobID), title=jobTitle, description=desc, junior=juniorBool, \
             intermediate=intermediateBool, senior=seniorBool, employer=employerName)

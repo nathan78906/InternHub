@@ -24,8 +24,8 @@ elif skill == "senior":
 
 ret_string = ""
 for row in results:
-    ret_string += "Title: " + row.title 
-    ret_string += ", Description: " + row.description
-    ret_string += ", Employer: " + row.employer
+    ret_string += "Title: " + row.title + "\n"
+    ret_string += "Description: " + row.description + "\n"
+    ret_string += "Employer: " + row.employer + "\n"
     ret_string += "\n"
 print(ret_string)
