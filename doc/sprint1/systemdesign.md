@@ -22,34 +22,34 @@
 - Responsibilities: 
   * Knows it's school
   * Knows it's qualifications(skill level)
-- Collaborators:   
-  * Handler
+- Collaborators:     
+  * Handler  
   
- **Employer**
+**Employer**
 - Superclass: User
 - Subclass: N/A
 - Responsibilities: 
   * Knows company info and position within company
 - Collaborators:   
-  * Handler
+  * Handler  
   
-  **Admin**
+**Admin**
 - Superclass: User
 - Subclass: N/A
 - Responsibilities: 
   * Knows administrative details
 - Collaborators:   
-  * Handler
+  * Handler  
   
-   **Job**
+**Job**
 - Superclass: User
 - Subclass: N/A
 - Responsibilities: 
   * Knows skill level and other job details
 - Collaborators:   
-  * Handler
+  * Handler  
   
-  **Handler**
+ **Handler**
 - Superclass: N/A
 - Subclass: N/A
 - Responsibilities: 
@@ -62,7 +62,8 @@
   * User
   * Student
   * Employer
-  * Admin
+  * Admin 
+  * Job  
   
 Note: More responsibilities and classes to be added in future sprints.
   
