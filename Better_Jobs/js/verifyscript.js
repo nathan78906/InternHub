@@ -3,18 +3,19 @@ function readTextFile(file){
     // Get the user info as XML HTTP Request object
     var textInfoXMLHttpRequest = new XMLHttpRequest();
     textInfoXMLHttpRequest.open("GET", file, false);
-    textInfoXMLHttpRequest.onreadystatechange = function() {
+    textInfoXMLHttpRequest.onreadystatechange = function() 
+    {
     // Check if the file is ready
-    if(textInfoXMLHttpRequest.readyState === 4){
-        // Check the status and type 
-        if(textInfoXMLHttpRequest.status === 200 || textInfoXMLHttpRequest.status == 0){
-            // Variable that has text as string
-            var allText = textInfoXMLHttpRequest.responseText;
-            str = allText;  
-            }
-        }
-    };
-	textInfoXMLHttpRequest.send(null);
+	    if(textInfoXMLHttpRequest.readyState === 4){
+		alert("");
+		// Check the status and type 
+		if(textInfoXMLHttpRequest.status === 200 || textInfoXMLHttpRequest.status == 0){
+		    // Variable that has text as string
+		    str = textInfoXMLHttpRequest.responseText;
+		}
+	    }
+    }
+    textInfoXMLHttpRequest.send(null);
     return str;
 }
 /*
@@ -56,15 +57,16 @@ is valid/invalid.
 */
 function displayVerification(){
     // TODO: Make sure the path of student home page is correct
-    var filePath = "file:///Better-Jobs/Better_Jobs/Student%20Home%20Page/studentHP.html";
-    var userInfoTextPath = "file:///Better-Jobs/Better_Jobs/info.txt";
+    var filePath = "file:///home/venkada/Documents/cscc01/Better-Jobs/Better_Jobs/Student/studentHP.html";
+    var userInfoTextPath = "file:///home/venkada/Documents/cscc01/Better-Jobs/Better_Jobs/info.txt";
     // TODO: If above is correct the rest should work
-    var userInfo = getArrayOfUsers(readTextFile(userInfoTextPath);
+    var userInfo = getArrayOfUsers(readTextFile(userInfoTextPath));
+    alert("success");
     // Check if information entered is correct
     // Otherwise tell the user that the info is invalid
     if(verifyLogin(userInfo)){
         // Display to the user that info is valid
-        window.location.href = filePath;
+        alert("success");
     }else{
         alert("Invalid!")
     }
