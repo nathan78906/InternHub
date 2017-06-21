@@ -7,7 +7,6 @@ function readTextFile(file){
     {
     // Check if the file is ready
 	    if(textInfoXMLHttpRequest.readyState === 4){
-		alert("");
 		// Check the status and type 
 		if(textInfoXMLHttpRequest.status === 200 || textInfoXMLHttpRequest.status == 0){
 		    // Variable that has text as string
@@ -57,16 +56,15 @@ is valid/invalid.
 */
 function displayVerification(){
     // TODO: Make sure the path of student home page is correct
-    var filePath = "file:///home/venkada/Documents/cscc01/Better-Jobs/Better_Jobs/Student/studentHP.html";
-    var userInfoTextPath = "file:///home/venkada/Documents/cscc01/Better-Jobs/Better_Jobs/info.txt";
-    // TODO: If above is correct the rest should work
+    var filePath = 'Student Home Page/studentHP.html';
+    var userInfoTextPath = 'info.txt';
+    // TODO: If above s correct the rest should work
     var userInfo = getArrayOfUsers(readTextFile(userInfoTextPath));
-    alert("success");
     // Check if information entered is correct
     // Otherwise tell the user that the info is invalid
     if(verifyLogin(userInfo)){
         // Display to the user that info is valid
-        alert("success");
+        window.location.href = filePath;
     }else{
         alert("Invalid!")
     }
