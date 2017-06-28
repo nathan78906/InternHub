@@ -15,5 +15,11 @@ def index(request):
     }
     return render(request, 'hub/index.html', context)
 
-def detail(request, job_id):
-    return HttpResponse("You're looking at job %s." % job_id)
+def job_view(request, job_id):
+    job = Job.objects.get(id=job_id)
+    job_desc = job.description
+    context = {
+        'job': job,
+        'job_desc': job_desc
+    }
+    return render(request, 'hub/job.html', context)

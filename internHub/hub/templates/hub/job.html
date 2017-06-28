@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 
-  <title>Student</title>
+  <title>{{ job.title }}</title>
 
   <!-- Page styles -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -48,24 +48,12 @@
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <!-- also here -->
-              <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp full-width">
-                <thead>
-                  <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Job Title</th>
-                    <th class="mdl-data-table__cell--non-numeric">Employer</th>
-                    <th class="mdl-data-table__cell--non-numeric">Skill Level</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for job in job_list %}
-                  <tr>
-                    <td class="mdl-data-table__cell--non-numeric"><a href="/hub/job/{{ job.id }}/">{{ job.title }}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{ job.employer }}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{ job.get_skill_display }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
+              <div class="mdl-card mdl-shadow--2dp full-width">
+                <p>{{ job.title }}</p>
+                <p>{{ job.employer }}</p>
+                <p>{{ job.get_skill_display }}</p>
+                <p>{{ job.description|linebreaks }}</p>
+              </div>
             </div>
             <div class="mdl-cell mdl-cell--3-col">
               <!-- and probably also here -->
