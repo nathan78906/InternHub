@@ -30,9 +30,16 @@ class Employer(models.Model):
 
 class Student(models.Model):
     studentId = models.IntegerField()
-    lastName = models.CharField(max_length=30)
+    email = models.CharField(max_length=60)
+    password = models.CharField(max_length=20) #Encryption?
     firstName = models.CharField(max_length=30)
+    lastName = models.CharField(max_length=30)
+    birthdate = models.DateField()
     schoolId = models.IntegerField()
+    studyField = models.CharField(max_length = 30)
+    studyYears = models.IntegerField()
+    phoneNumber = models.CharField(max_length=12)
+    address = models.CharField(max_length=50)
 
 class School(models.Model):
     schoolId = models.IntegerField()
