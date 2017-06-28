@@ -9,7 +9,7 @@ from django.template import loader
 from .models import Job
 
 def index(request):
-    job_list = Job.objects.all()
+    job_list = Job.objects.all().order_by('deadline')
     context = {
         'job_list': job_list,
     }
