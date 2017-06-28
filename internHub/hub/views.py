@@ -17,9 +17,14 @@ def index(request):
 
 def job_view(request, job_id):
     job = Job.objects.get(id=job_id)
-    job_desc = job.description
     context = {
         'job': job,
-        'job_desc': job_desc
     }
     return render(request, 'hub/job.html', context)
+
+def skill_filter(request, skill):
+    job_list = Job.objects.filter(skill=skill)
+    context = {
+        'job_list': job_list,
+    }
+    return render(request, 'hub/index.html', context)
