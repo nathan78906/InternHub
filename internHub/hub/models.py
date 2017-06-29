@@ -5,6 +5,7 @@ import datetime
 
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Job(models.Model):
@@ -23,18 +24,18 @@ class Job(models.Model):
     def __str__(self):
         return self.title + " - " + self.employer
 
+class Company(models.Model):
+    company_name = models.CharField(max_length=50)
+    
 class Employer(models.Model):
-    employerId = models.IntegerField()
-    name = models.CharField(max_length=50)
-    tags = models.CharField(max_length=20)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, default=None)
 
 class Student(models.Model):
-    studentId = models.IntegerField()
-    lastName = models.CharField(max_length=30)
-    firstName = models.CharField(max_length=30)
-    schoolId = models.IntegerField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    program = models.CharField(max_length=150, null=True)
+    year_of_study = models.IntegerField(null=True)
+    year_of_graduation = models.IntegerField(null=True)
 
 class School(models.Model):
-    schoolId = models.IntegerField()
-    name = models.CharField(max_length=70)
-    coordinator = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
