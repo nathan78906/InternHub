@@ -63,14 +63,26 @@
                     <td class="mdl-data-table__cell--non-numeric"><a href="/hub/job/{{ job.id }}/">{{ job.title }}</td>
                     <td class="mdl-data-table__cell--non-numeric">{{ job.employer }}</td>
                     <td class="mdl-data-table__cell--non-numeric">{{ job.get_skill_display }}</td>
-                    <td class="mdl-data-table__cell ">{{ job.deadline }}</td>
+                    <td class="mdl-data-table__cell">{{ job.deadline }}</td>
                   </tr>
                   {% endfor %}
                 </tbody>
               </table>
             </div>
             <div class="mdl-cell mdl-cell--2-col">
-              <!-- and probably also here -->
+               <!-- Right aligned menu below button -->
+		<button id="demo-menu-lower-right"
+        		class="mdl-button mdl-js-button mdl-button--icon">
+  		<i class="material-icons">more_vert</i>
+		</button>
+
+		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+    			for="demo-menu-lower-right">
+  			<a style="text-decoration: none" href="/hub/skill/J"><li class="mdl-menu__item">Junior</li></a>
+  			<a style="text-decoration: none" href="/hub/skill/I"><li class="mdl-menu__item">Intermediate</li></a>
+  			<!--<li disabled class="mdl-menu__item">Disabled Action</li> -->
+  			<a style="text-decoration: none" href="/hub/skill/S"><li class="mdl-menu__item">Senior</li></a>
+		</ul>
               
             </div>
           </div>
