@@ -44,5 +44,7 @@ Date: June 21st, 2017 17:00-19:00
      - ui/frontend for registration (Omid & Aiyaz)
      - link between backend and frontend (Nathan)
 
+  3. Documentation: Salman & Ewen
+
   ### Upgrades on existing features:
   - Create front end interface for sorting jobs by skill level to work with already existing backend functionality (Venkada)
