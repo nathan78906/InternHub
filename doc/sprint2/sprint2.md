@@ -35,11 +35,14 @@ Date: June 21st, 2017 17:00-19:00
   #### Task Breakdown:
   1. Story One subtasks:
 
-     - update backend to query database using "order_by" for ascending and descending job deadlines
+     - update backend to query database using "order_by" for ascending and descending job deadlines (Nathan)
+     - update html files to allow switching between ascending/descending (Nathan)
 
   2. Story Two subtasks:
 
-     - add backend functionality for registration
-     - ui/frontend for registration
-     - link between backend and frontend
-     - implement encryption for password field in database
+     - add backend functionality for registration (Osaru)
+     - ui/frontend for registration (Omid & Aiyaz)
+     - link between backend and frontend (Nathan)
+
+  ### Upgrades on existing features:
+  - Create front end interface for sorting jobs by skill level to work with already existing backend functionality (Venkada)
