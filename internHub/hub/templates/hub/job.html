@@ -2,18 +2,17 @@
 <html lang="en">
   <head>
 
-  <title>{{ job.title }}</title>
+    <title>{{ job.title }}</title>
 
-  <!-- Page styles -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <style>
-  .full-width {
-    width: 100%;
-  }
-  </style> 
+    <!-- Page styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+    .full-width {
+      width: 100%;
+    }
+    </style> 
   </head>
   <body>
   <!-- Always shows a header, even in smaller screens. -->
@@ -45,22 +44,20 @@
       <main class="mdl-layout__content">
         <div class="page-content"><!-- Your content goes here -->	 
           <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--2-col">
+            <div class="mdl-cell mdl-cell--3-col">
               <!-- add content here -->
             </div>
-            <div class="mdl-cell mdl-cell--8-col">
+            <div class="mdl-cell mdl-cell--6-col">
               <!-- also here -->
-              <div style="padding: 80px 56px" class="content mdl-card mdl-shadow--2dp full-width">
-                <h1>{{ job.title }}</h1>
-                <h2>{{ job.employer }}</h2>
-                <h3>{{ job.get_skill_display }}</h3>
-                <p>{{ job.description | linebreaks}}</p>
+              <div class="mdl-card mdl-shadow--2dp full-width">
+                <p>{{ job.title }}</p>
+                <p>{{ job.employer }}</p>
+                <p>{{ job.get_skill_display }}</p>
+                <p>{{ job.description|linebreaks }}</p>
               </div>
             </div>
-            <div class="mdl-cell mdl-cell--2-col">
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
-  		Apply
-	      </button>
+            <div class="mdl-cell mdl-cell--3-col">
+              <!-- and probably also here -->
             </div>
           </div>
         </div>
