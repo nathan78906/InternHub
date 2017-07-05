@@ -9,13 +9,14 @@ from django.contrib.auth.models import User
 from .models import Job
 from .models import Employer
 from .models import Company
+from .models import Student 
 
 def index(request):
     job_list = Job.objects.all().order_by('deadline')
     context = {
-        'job_list': job_list,
+        'mesage': "Welcome",
     }
-    return render(request, 'hub/index.html', context)
+    return render(request, 'hub/register.html', context)
 
 def job_view(request, job_id):
     job = Job.objects.get(id=job_id)
@@ -43,7 +44,7 @@ def register_employer(request):
     except:
         return HttpResponse("Missing a required field")
     else:
-        new_user = create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, isStaff=False)
+        new_user = User(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
         new_user.save()
         company = Company.objects.filter(company_name=company_name)
         new_employer = Employer(user=new_user, company=company)
@@ -62,9 +63,13 @@ def register_student(request):
     except:
         return HttpResponse("Missing a required field")
     else:
-        new_user = create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, isStaff=False)
+        new_user = User(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
         new_user.save()
         new_student = Student(user=new_user)
         new_student.save()
 
-        return HttpResponse("Your new Student account was successfully created!")
+        job_list = Job.objects.all().order_by('deadline')
+        context = {
+            'job_list': job_list,
+        }
+        return render(request, 'hub/index.html', context)
