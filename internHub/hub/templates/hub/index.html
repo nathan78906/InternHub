@@ -2,16 +2,17 @@
 <html lang="en">
   <head>
 
-    <title>Student</title>
+  <title>Student</title>
 
-    <!-- Page styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <style>
-    .full-width {
-      width: 100%;
-    }
+  <!-- Page styles -->  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>
+  .full-width {
+    width: 100%;
+  }
   </style> 
   </head>
   <body>
@@ -48,31 +49,44 @@
               <!-- add content here -->
             </div>
             <div class="mdl-cell mdl-cell--8-col">
-              <!-- also here -->
-              <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp full-width">
+			  <!-- also here -->
+			  <div id="mdl-table">
+              <table id='mdl-table' class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp full-width">
                 <thead>
                   <tr>
                     <th class="mdl-data-table__cell--non-numeric">Job Title</th>
                     <th class="mdl-data-table__cell--non-numeric">Employer</th>
                     <th class="mdl-data-table__cell--non-numeric">Skill Level</th>
-                    <th class="mdl-data-table__cell mdl-data-table__header--sorted-descending ">Deadline</th>
+                    <th class="mdl-data-table__cell sort" data-sort="deadline">Deadline</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="list">
                   {% for job in job_list %}
                   <tr>
                     <td class="mdl-data-table__cell--non-numeric"><a href="/hub/job/{{ job.id }}/">{{ job.title }}</td>
                     <td class="mdl-data-table__cell--non-numeric">{{ job.employer }}</td>
                     <td class="mdl-data-table__cell--non-numeric">{{ job.get_skill_display }}</td>
-                    <td class="mdl-data-table__cell ">{{ job.deadline }}</td>
+                    <td class="mdl-data-table__cell deadline">{{ job.deadline }}</td>
                   </tr>
                   {% endfor %}
                 </tbody>
               </table>
+			  </div>
             </div>
             <div class="mdl-cell mdl-cell--2-col">
-              <!-- and probably also here -->
-              
+               <!-- Right aligned menu below button -->
+		<button id="demo-menu-lower-right"
+        		class="mdl-button mdl-js-button mdl-button--icon">
+  		<i class="material-icons">more_vert</i>
+		</button>
+
+		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+    			for="demo-menu-lower-right">
+  			<a style="text-decoration: none" href="/hub/skill/J"><li class="mdl-menu__item">Junior</li></a>
+  			<a style="text-decoration: none" href="/hub/skill/I"><li class="mdl-menu__item">Intermediate</li></a>
+  			<!--<li disabled class="mdl-menu__item">Disabled Action</li> -->
+  			<a style="text-decoration: none" href="/hub/skill/S"><li class="mdl-menu__item">Senior</li></a>
+		</ul>
             </div>
           </div>
         </div>
@@ -80,3 +94,6 @@
     </div>
   </body>
 </html>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4579/list.min.js'></script>
+<script src="/static/js/index.js"></script>
