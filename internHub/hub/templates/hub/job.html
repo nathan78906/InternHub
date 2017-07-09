@@ -13,6 +13,12 @@
   .full-width {
     width: 100%;
   }
+  .backbutton {
+    float: right;
+    bottom: 0;
+    position: fixed;
+    margin-bottom: 1%;
+  }
   </style> 
   </head>
   <body>
@@ -46,7 +52,7 @@
         <div class="page-content"><!-- Your content goes here -->	 
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--2-col">
-              <!-- add content here -->
+              <!-- add content here --> 
             </div>
             <div class="mdl-cell mdl-cell--8-col">
               <!-- also here -->
@@ -57,10 +63,9 @@
                 <p>{{ job.description | linebreaks}}</p>
               </div>
             </div>
+            
             <div class="mdl-cell mdl-cell--2-col">
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
-  		Apply
-	      </button>
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.location.href='/hub/job/{{ job.id }}/apply'">Apply</button>
             </div>
           </div>
         </div>
