@@ -39,3 +39,13 @@ class Student(models.Model):
 
 class School(models.Model):
     name = models.CharField(max_length=100)
+
+class Documents(models.Model):
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, default=None)
+    resume = models.FileField(upload_to='resumes/')
+    cover_letter = models.FileField(upload_to='cover_letters/', blank=True, null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    
+    #@python_2_unicode_compatible
+    def __str__(self):
+        return self.job.title + " - " + str(self.uploaded_at)

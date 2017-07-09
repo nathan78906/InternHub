@@ -1,15 +1,20 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 from .models import Job
 from .models import Employer
 from .models import Company
 from .models import Student 
+from .models import Documents
+
+from .forms import DocumentForm
 
 def index(request):
     job_list = Job.objects.all().order_by('deadline')
@@ -17,7 +22,7 @@ def index(request):
         'mesage': "Welcome",
     }
     return render(request, 'hub/register.html', context)
-
+    
 def job_view(request, job_id):
     job = Job.objects.get(id=job_id)
     context = {
@@ -73,3 +78,21 @@ def register_student(request):
             'job_list': job_list,
         }
         return render(request, 'hub/index.html', context)
+
+def model_form_upload(request, job_id):
+    job = Job.objects.get(id=job_id)
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            application = form.save(commit=False)  
+            application.job = job
+            application.save()
+            form.save_m2m()
+            return redirect('job_view', job_id)
+    else:
+        form = DocumentForm()
+    return render(request, 'hub/apply.html', {
+        'form': form,
+        'job': job,
+    })
