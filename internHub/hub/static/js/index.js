@@ -1,5 +1,5 @@
 var options = {
-				valueNames: ['material', 'quantity', 'price', 'deadline']
+				valueNames: ['jobtitle', 'employer', 'deadline']
 		}
 	, documentTable = new List('mdl-table', options)
 	;
