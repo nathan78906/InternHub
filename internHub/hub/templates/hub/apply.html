@@ -1,87 +1,47 @@
-<!doctype html>
-<html lang="en">
-  <head>
+{% extends 'hub/base.html' %}
 
-  <title>{{ job.title }}</title>
+{% block title %}{{ job.title }}{% endblock %}
+{% block other_styles %}
+<!-- Page styles -->  
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 
-  <!-- Page styles -->  
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  
-  <style>
-  .full-width {
-    width: 100%;
-  }
-  </style> 
-  </head>
-  <body>
-  <!-- Always shows a header, even in smaller screens. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">InternHub</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation. We hide it in small screens. -->
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-          </nav>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
+
+<style>
+.full-width {
+  width: 100%;
+}
+</style> 
+{% endblock %}
+
+{% block middle_content %}
+  <div style="padding: 80px 56px" class="content mdl-card mdl-shadow--2dp full-width">
+    <h1>{{ job.title }}</h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input type="file" style="color:transparent;" onchange="this.style.color = 'black';" name="resume" required id="id_resume">
+        <input class="mdl-textfield__input" placeholder="Resume" type="text" id="uploadFile1" readonly/>
+        <input type="file" style="color:transparent;" onchange="this.style.color = 'black';" name="cover_letter" id="id_cover_letter">
+        <input class="mdl-textfield__input" placeholder="Cover Letter" type="text" id="uploadFile2" readonly/>  
       </div>
-      <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here -->	 
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--2-col">
-              <!-- add content here -->
-            </div>
-            <div class="mdl-cell mdl-cell--8-col">
-            <!-- also here -->
-            <div style="padding: 80px 56px" class="content mdl-card mdl-shadow--2dp full-width">
-            <h1>{{ job.title }}</h1>
-            <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    			<input type="file" style="color:transparent;" onchange="this.style.color = 'black';" name="resume" required id="id_resume">
-                <input class="mdl-textfield__input" placeholder="Resume" type="text" id="uploadFile1" readonly/>
-                <input type="file" style="color:transparent;" onchange="this.style.color = 'black';" name="cover_letter" id="id_cover_letter">
-                <input class="mdl-textfield__input" placeholder="Cover Letter" type="text" id="uploadFile2" readonly/>	
-  			</div>
-            <br>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-            Submit
-            </button>
-            </form>
-            </div>
-            <script>
-			  document.getElementById("id_resume").onchange = function () {
-			    document.getElementById("uploadFile1").value = this.files[0].name;
-			  };
-              document.getElementById("id_cover_letter").onchange = function () {
-			    document.getElementById("uploadFile2").value = this.files[0].name;
-			  };
-			</script>
+      <br>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+      Submit
+      </button>
+    </form>
+  </div>
+{% endblock %}
 
-            </div>
-            <div class="mdl-cell mdl-cell--2-col">
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  </body>
-</html>
+{% block scripts %}
+  <script>
+    document.getElementById("id_resume").onchange = function () {
+    document.getElementById("uploadFile1").value = this.files[0].name;
+    };
+    document.getElementById("id_cover_letter").onchange = function () {
+    document.getElementById("uploadFile2").value = this.files[0].name;
+    };
+  </script>
+{% endblock %}
+

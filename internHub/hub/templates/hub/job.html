@@ -1,14 +1,12 @@
-<!doctype html>
-<html lang="en">
-  <head>
+{% extends 'hub/base.html' %}
 
-  <title>{{ job.title }}</title>
+{% block title %}{{ job.title }}{% endblock %}
 
-  <!-- Page styles -->
+{% block other_styles %}
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
   <style>
   .full-width {
     width: 100%;
@@ -19,57 +17,20 @@
     position: fixed;
     margin-bottom: 1%;
   }
-  </style> 
-  </head>
-  <body>
-  <!-- Always shows a header, even in smaller screens. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">InternHub</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation. We hide it in small screens. -->
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-          </nav>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
-      </div>
-      <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here -->	 
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--2-col">
-              <!-- add content here --> 
-            </div>
-            <div class="mdl-cell mdl-cell--8-col">
-              <!-- also here -->
-              <div style="padding: 80px 56px" class="content mdl-card mdl-shadow--2dp full-width">
-                <h1>{{ job.title }}</h1>
-                <h2>{{ job.employer }}</h2>
-                <h3>{{ job.get_skill_display }}</h3>
-                <p>{{ job.description | linebreaks}}</p>
-              </div>
-            </div>
-            
-            <div class="mdl-cell mdl-cell--2-col">
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.location.href='/hub/job/{{ job.id }}/apply'">Apply</button>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  </body>
-</html>
+  </style>
+
+{% endblock %}
+
+{% block middle_content %}
+  <div style="padding: 80px 56px" class="content mdl-card mdl-shadow--2dp full-width">
+    <h1>{{ job.title }}</h1>
+    <h2>{{ job.employer }}</h2>
+    <h3>{{ job.get_skill_display }}</h3>
+    <p>{{ job.description | linebreaks}}</p>
+  </div>
+
+{% endblock %}
+
+{% block right_content %}
+  <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.location.href='/hub/job/{{ job.id }}/apply'">Apply</button>
+{% endblock %}
