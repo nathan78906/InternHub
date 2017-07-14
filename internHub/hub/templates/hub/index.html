@@ -3,8 +3,6 @@
 {% block title %}Student{% endblock %}
 
 {% block other_styles %}
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <link rel="stylesheet" href="/static/css/style.css">
 
   <style>
@@ -52,21 +50,22 @@
 {% endblock %}
 
 {% block right_content %}
-  <div class="mdl-cell mdl-cell--2-col">
-               <!-- Right aligned menu below button -->
-    <button id="demo-menu-lower-right"
-            class="mdl-button mdl-js-button mdl-button--icon">
-      <i class="material-icons">more_vert</i>
-    </button>
+  
+             <!-- Right aligned menu below button -->
+  Skill Level
+  <button id="demo-menu-lower-right"
+          class="mdl-button mdl-js-button mdl-button--icon"> 
+    <i class="material-icons">more_vert</i>
+  </button>
 
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-          for="demo-menu-lower-right">
-        <a style="text-decoration: none" href="/hub/skill/J"><li class="mdl-menu__item">Junior</li></a>
-        <a style="text-decoration: none" href="/hub/skill/I"><li class="mdl-menu__item">Intermediate</li></a>
-        <!--<li disabled class="mdl-menu__item">Disabled Action</li> -->
-        <a style="text-decoration: none" href="/hub/skill/S"><li class="mdl-menu__item">Senior</li></a>
-    </ul>
-  </div>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+        for="demo-menu-lower-right">
+    <a style="text-decoration: none" href="/hub/skill/J"><li class="mdl-menu__item">Junior</li></a>
+    <a style="text-decoration: none" href="/hub/skill/I"><li class="mdl-menu__item">Intermediate</li></a>
+    <!--<li disabled class="mdl-menu__item">Disabled Action</li> -->
+    <a style="text-decoration: none" href="/hub/skill/S"><li class="mdl-menu__item">Senior</li></a>
+  </ul>
+
 
 {% endblock %}
 
