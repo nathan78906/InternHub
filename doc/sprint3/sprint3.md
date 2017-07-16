@@ -24,9 +24,10 @@ Date: July 5th, 2017 17:00-19:00
   Overview: Implement and improve viewing applied posts and login. Also improve layout of previous pages and applying functionalities. 
 
 #### User Stories:
+
   - Priority: 50, Size: 2
 
-      As an Employer or Student, I would like a navbar so that I can easily navigate to different sections of the site.
+     As an Employer or Student, I would like a navbar so that I can easily navigate to different sections of the site.
 
   - Priority: 20, Size: 2
   
@@ -43,6 +44,18 @@ Date: July 5th, 2017 17:00-19:00
   - Priority: 10 , Size: 5
  
      As an Admin, I want to be able to login to an admin account, so that I can perform admin functions
+
+  - Priority 70, Size: 3  
+
+     As a Student, I want to be able to search for jobs in a text box, so that I can easily filter the list of jobs  
+
+  - Priority: 40, Size: 5  
+
+     As an Employer, I want to be able to login to an employer's account, so that I can perform employer functions.  
+
+  - Priority: 80, Size: 3  
+   
+     As a Student, I want to be able to apply to jobs, so that Employers can see who is interested in a certain job.
 
   #### Task Breakdown:
   1. Story One subtasks:
@@ -66,9 +79,20 @@ Date: July 5th, 2017 17:00-19:00
 
      - A page to enter login and password details to login for the admin (Django implmented)
 
-  6. Documentation: Salman & Ewen & Venkada
+  6. Story six subtasks:
+
+     - implement search data from job listings table (Nathan)
+
+  7. Story seven subtasks:
+
+     - Implement login functionality for the employer in the backend (Osaru)
+
+  8. Story eight subtasks:
+
+     - Including the applications objects when the student applies to a job (Osaru)
+
+  . Documentation: Salman & Ewen & Venkada
 
   ### Upgrades on existing features:
-  - Improving login functionalities in the backend (Osaru)
-  - Including the applications objects when the student applies to a job(Osaru)
+  - Improving login functionalities for the student in the backend (Osaru)
   - Changing all previous web pages to material design format (Omid)
