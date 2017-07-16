@@ -1,0 +1,75 @@
+{% extends 'hub/base.html' %}
+
+{% block title %}Student Login{% endblock %}
+
+{% block middle_content %}
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+	<h1>Student Login</h1>	
+		<!-- Textfield with Floating Label -->
+
+	<form action="{% url 'login_student' %}" name="login-form" method="post" id="login">
+		{% csrf_token %}
+	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	    <input class="mdl-textfield__input" type="text" id="username" required name="username">
+	    <label class="mdl-textfield__label" for="username">Enter your username</label>
+	  </div>
+	  <br>
+	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	    <input class="mdl-textfield__input" type="password" id="password" required name="password" onKeyUp='checkPassword();'>
+	    <label class="mdl-textfield__label" for="password">Enter your password</label>
+	  </div>
+	  <!-- Raised disabled button -->
+		<input class="mdl-button mdl-js-button mdl-button--raised" id="submit" type="submit" >
+		  
+		</input>
+	</form>
+
+{% endblock %}
+
+{% block scripts %}
+	<script>
+	// TODO: Implement this function to check for when the user enters an email and hits 'submit'	
+	function checkEmail() {
+		var str = "c@mail.co"; 
+		var n = str.search(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+		document.getElementById("demo").innerHTML = n;
+	}
+
+	// document.onready = function () {
+	// 	document.querySelectorAll("input[data-required]").forEach(function (e) {
+	// 		e.required = true;
+	// 	});
+	// };
+
+	var checkPassword = function() {
+  if (document.getElementById('password').value ===
+    document.getElementById('confirm-password').value) {
+    //document.getElementById('password-message').style.color = 'green';
+    //document.getElementById('password-message').innerHTML = 'matching';
+  } else {
+    //document.getElementById('password-message').style.color = 'red';
+    document.getElementById('password-message').innerHTML = 'Passwords do not match';
+  }
+}
+
+	//  push it to array and remove required attribute
+	let requiredComponents = document.querySelectorAll("[required]");
+	requiredComponents.forEach(function(e){
+		e.removeAttribute('required');
+	})
+	// when submit button click, add required attribute back
+	document.getElementById("submit").addEventListener("click", function(){
+		requiredComponents.forEach(function(e){
+			e.setAttribute('required', true)
+		})
+	});
+	// also when form submit event
+	document.getElementById("register").addEventListener("submit", function(){
+		requiredComponents.forEach(function(e){
+			e.setAttribute('required', true)
+		})
+	});
+	
+	</script>
+
+{% endblock %}

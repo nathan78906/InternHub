@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^skill/(?P<skill>[\w-]+)/$', views.skill_filter, name='skill_filter'),
     url(r'^register/employer/$', views.register_employer, name='register_employer'),
     url(r'^register/student/$', views.register_student, name='register_student'),
+    url(r'^login/student/$', views.login_student, name='login_student'),
+    url(r'^login/student2/$', views.login_student2, name='login_student2'),
 ]

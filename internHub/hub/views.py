@@ -98,10 +98,10 @@ def model_form_upload(request, job_id):
     return render(request, 'hub/apply.html', {
         'form': form,
         'job': job,
-        'user': user
+        'user': user,
     })
 
-def my_login(request):
+def login_student(request):
     username = request.POST['username']
     password = request.POST['password']
     user = authenticate(username=username, password=password)
@@ -115,6 +115,13 @@ def my_login(request):
         return render(request, 'hub/index.html', context)
     else:
         return HttpResponse("Log in failed. Invalid credentials")
+        
+def login_student2(request):
+    job_list = Job.objects.all().order_by('deadline')
+    context = {
+        'mesage': "Welcome",
+    }
+    return render(request, 'hub/student_login.html', context)
 
 def logout_view(request):
     logout(request)
