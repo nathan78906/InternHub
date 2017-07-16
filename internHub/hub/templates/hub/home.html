@@ -1,0 +1,84 @@
+{% extends 'hub/base_no_navlinks.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block other_styles %}
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <style>
+  .full-width {
+    width: 100%;
+  }
+  
+  .student-card-square.mdl-card {
+    width: 30%;
+    height: 15%;
+  }
+  
+  .student-card-square > .mdl-card__title {
+    color: #fff;
+    background: bottom right 15% no-repeat #00897B;
+  }
+  
+  .employer-card-square.mdl-card {
+    width: 30%;
+    height: 15%;
+  }
+  
+  .employer-card-square > .mdl-card__title {
+    color: #fff;
+    background: bottom right 15% no-repeat #00ACC1;
+  }
+  
+  .admin-card-square.mdl-card {
+    width: 30%;
+    height: 15%;
+  }
+  
+  .admin-card-square > .mdl-card__title {
+    color: #fff;
+    background: bottom right 15% no-repeat #039BE5;
+  }
+  </style> 
+{% endblock %}
+
+{% block middle_content %}
+
+<div class="mdl-grid">
+  <div class="student-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+    <h2 class="mdl-card__title-text">Student</h2>
+  </div>
+
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="window.location.href='/hub/'">
+      Start
+    </a>
+  </div>
+</div>
+  <div class="mdl-layout-spacer"></div>
+  <div class="employer-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+    <h2 class="mdl-card__title-text">Employer</h2>
+  </div>
+
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="window.location.href='/hub/'">
+      Start
+    </a>
+  </div>
+</div>
+  <div class="mdl-layout-spacer"></div>
+  <div class="admin-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+    <h2 class="mdl-card__title-text">Admin</h2>
+  </div>
+
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="window.location.href='/admin/'">
+      Start
+    </a>
+  </div>
+</div>
+</div>
+{% endblock %}

@@ -16,7 +16,10 @@ from .models import Documents
 
 from .forms import DocumentForm
 
-def index(request):
+def home(request):
+    return render(request, 'hub/home.html')
+
+def reg_student(request):
     job_list = Job.objects.all().order_by('deadline')
     context = {
         'mesage': "Welcome",
