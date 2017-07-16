@@ -89,7 +89,13 @@ Date: July 5th, 2017 17:00-19:00
 
   8. Story eight subtasks:
 
-     - Including the applications objects when the student applies to a job (Osaru)
+     - creating an applying page where the student can upload the resume and cover leter (Venkada)
+
+     - create database table to hold documents for jobs (Nathan)
+
+     - store student id attribute in related document rows in table (Osaru)
+
+     - create django form and update database with form fields (Nathan)
 
   . Documentation: Salman & Ewen & Venkada
 
