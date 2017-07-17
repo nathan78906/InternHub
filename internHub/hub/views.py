@@ -26,6 +26,13 @@ def reg_student(request):
         'mesage': "Welcome",
     }
     return render(request, 'hub/register.html', context)
+
+def index(request):
+    job_list = Job.objects.all().order_by('deadline')
+    context = {
+        'job_list': job_list,
+    }
+    return render(request, 'hub/index.html', context)
     
 def job_view(request, job_id):
     job = Job.objects.get(id=job_id)
@@ -81,7 +88,7 @@ def register_student(request):
         context = {
             'job_list': job_list,
         }
-        return render(request, 'hub/index.html', context)
+        return render(request, 'hub/student_login.html', context)
 
 def model_form_upload(request, job_id):
     job = Job.objects.get(id=job_id)
@@ -105,8 +112,8 @@ def model_form_upload(request, job_id):
     })
 
 def login_student(request):
-    username = request.POST['username']
-    password = request.POST['password']
+    username = request.POST.get("username", "")
+    password = request.POST.get("password", "")
     user = authenticate(username=username, password=password)
     if user is not None:
         login(request, user)
@@ -119,7 +126,7 @@ def login_student(request):
     else:
         return HttpResponse("Log in failed. Invalid credentials")
         
-def login_student2(request):
+def login_stu(request):
     job_list = Job.objects.all().order_by('deadline')
     context = {
         'mesage': "Welcome",

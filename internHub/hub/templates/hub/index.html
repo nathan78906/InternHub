@@ -35,7 +35,7 @@
       <tbody class="list">
         {% for job in job_list %}
           <tr>
-            <td class="mdl-data-table__cell--non-numeric jobtitle"><a href="/hub/job/{{ job.id }}/">{{ job.title }}</td>
+            <td class="mdl-data-table__cell--non-numeric jobtitle"><a href="/hub/student/job/{{ job.id }}/">{{ job.title }}</td>
             <td class="mdl-data-table__cell--non-numeric employer">{{ job.employer }}</td>
             <td class="mdl-data-table__cell--non-numeric">{{ job.get_skill_display }}</td>
             <td class="mdl-data-table__cell deadline">{{ job.deadline }}</td>
@@ -60,10 +60,10 @@
 
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
         for="demo-menu-lower-right">
-    <a style="text-decoration: none" href="/hub/skill/J"><li class="mdl-menu__item">Junior</li></a>
-    <a style="text-decoration: none" href="/hub/skill/I"><li class="mdl-menu__item">Intermediate</li></a>
+    <a style="text-decoration: none" href="/hub/student/skill/J"><li class="mdl-menu__item">Junior</li></a>
+    <a style="text-decoration: none" href="/hub/student/skill/I"><li class="mdl-menu__item">Intermediate</li></a>
     <!--<li disabled class="mdl-menu__item">Disabled Action</li> -->
-    <a style="text-decoration: none" href="/hub/skill/S"><li class="mdl-menu__item">Senior</li></a>
+    <a style="text-decoration: none" href="/hub/student/skill/S"><li class="mdl-menu__item">Senior</li></a>
   </ul>
 
 
