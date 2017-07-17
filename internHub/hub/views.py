@@ -40,6 +40,13 @@ def job_view(request, job_id):
         'job': job,
     }
     return render(request, 'hub/job.html', context)
+    
+def job_desc_view(request, job_id):
+    job = Job.objects.get(id=job_id)
+    context = {
+        'job': job,
+    }
+    return render(request, 'hub/job_desc.html', context)
 
 def skill_filter(request, skill):
     job_list = Job.objects.filter(skill=skill)
@@ -47,6 +54,13 @@ def skill_filter(request, skill):
         'job_list': job_list,
     }
     return render(request, 'hub/index.html', context)
+
+def student_applications(request):
+    job_list = Documents.objects.filter(user=request.user)
+    context = {
+        'job_list': job_list,
+    }
+    return render(request, 'hub/student_applications.html', context)
 
 def register_employer(request):
     try:
@@ -133,6 +147,7 @@ def login_stu(request):
     }
     return render(request, 'hub/student_login.html', context)
 
-def logout_view(request):
+def student_logout(request):
     logout(request)
     # Redirect to a home page here.
+    return redirect('home')

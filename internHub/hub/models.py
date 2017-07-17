@@ -49,4 +49,4 @@ class Documents(models.Model):
     
     #@python_2_unicode_compatible
     def __str__(self):
-        return self.job.title + " - " + str(self.uploaded_at)
+        return self.job.title + " - " + self.user.email

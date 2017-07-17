@@ -1,0 +1,30 @@
+{% extends 'hub/base.html' %}
+
+{% block title %}{{ job.title }}{% endblock %}
+
+{% block other_styles %}
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+  <style>
+  .full-width {
+    width: 100%;
+  }
+  .backbutton {
+    float: right;
+    bottom: 0;
+    position: fixed;
+    margin-bottom: 1%;
+  }
+  </style>
+
+{% endblock %}
+
+{% block middle_content %}
+  <div style="padding: 80px 56px" class="content mdl-card mdl-shadow--2dp full-width">
+    <h1>{{ job.title }}</h1>
+    <h2>{{ job.employer }}</h2>
+    <h3>{{ job.get_skill_display }}</h3>
+    <p>{{ job.description | linebreaks}}</p>
+  </div>
+
+{% endblock %}
