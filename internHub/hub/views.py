@@ -50,7 +50,7 @@ def register_employer(request):
     except:
         return HttpResponse("Missing a required field")
     else:
-        new_user = User(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
+        new_user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
         new_user.save()
         company = Company.objects.filter(company_name=company_name)
         new_employer = Employer(user=new_user, company=company)
@@ -69,7 +69,7 @@ def register_student(request):
     except:
         return HttpResponse("Missing a required field")
     else:
-        new_user = User(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
+        new_user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
         new_user.save()
         new_student = Student(user=new_user)
         new_student.save()
