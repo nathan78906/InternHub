@@ -1,0 +1,76 @@
+{% extends 'hub/base.html' %}
+
+{% block title %}Student{% endblock %}
+
+{% block other_styles %}
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <style>
+  .full-width {
+    width: 100%;
+  }
+  </style> 
+{% endblock %}
+
+{% block middle_content %}
+  <div id="mdl-table">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable is-upgraded is-focused">
+      <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+              <i class="material-icons">search</i>
+      </label>
+      <div class="mdl-textfield__expandable-holder full-width">
+              <input class="mdl-textfield__input search full-width" type="text" id="sample6">
+              <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+      </div>
+    </div>
+    <table id='mdl-table' class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp full-width">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric" data-sort="jobtitle">Job Title</th>
+          <th class="mdl-data-table__cell--non-numeric" data-sort="employer">Employer</th>
+          <th class="mdl-data-table__cell--non-numeric">Skill Level</th>
+          <th class="mdl-data-table__cell sort" data-sort="deadline">Deadline</th>
+        </tr>
+      </thead>
+      <tbody class="list">
+        {% for application in job_list %}
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric jobtitle"><a href="/hub/student/applications/{{ application.job.id }}/">{{ application.job.title }}</td>
+            <td class="mdl-data-table__cell--non-numeric employer">{{ application.job.employer }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ application.job.get_skill_display }}</td>
+            <td class="mdl-data-table__cell deadline">{{ application.job.deadline }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+
+
+{% endblock %}
+
+{% block right_content %}
+  
+             <!-- Right aligned menu below button -->
+  Skill Level
+  <button id="demo-menu-lower-right"
+          class="mdl-button mdl-js-button mdl-button--icon"> 
+    <i class="material-icons">more_vert</i>
+  </button>
+
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+        for="demo-menu-lower-right">
+    <a style="text-decoration: none" href="/hub/student/skill/J"><li class="mdl-menu__item">Junior</li></a>
+    <a style="text-decoration: none" href="/hub/student/skill/I"><li class="mdl-menu__item">Intermediate</li></a>
+    <!--<li disabled class="mdl-menu__item">Disabled Action</li> -->
+    <a style="text-decoration: none" href="/hub/student/skill/S"><li class="mdl-menu__item">Senior</li></a>
+  </ul>
+
+
+{% endblock %}
+
+{% block external_scripts %}
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4579/list.min.js'></script>
+  <script src="/static/js/index.js"></script>
+{% endblock %}
