@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout, get_user
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
@@ -25,6 +26,13 @@ def reg_student(request):
         'mesage': "Welcome",
     }
     return render(request, 'hub/register.html', context)
+
+def index(request):
+    job_list = Job.objects.all().order_by('deadline')
+    context = {
+        'job_list': job_list,
+    }
+    return render(request, 'hub/index.html', context)
     
 def job_view(request, job_id):
     job = Job.objects.get(id=job_id)
@@ -52,7 +60,7 @@ def register_employer(request):
     except:
         return HttpResponse("Missing a required field")
     else:
-        new_user = User(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
+        new_user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
         new_user.save()
         company = Company.objects.filter(company_name=company_name)
         new_employer = Employer(user=new_user, company=company)
@@ -71,7 +79,7 @@ def register_student(request):
     except:
         return HttpResponse("Missing a required field")
     else:
-        new_user = User(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
+        new_user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
         new_user.save()
         new_student = Student(user=new_user)
         new_student.save()
@@ -80,16 +88,18 @@ def register_student(request):
         context = {
             'job_list': job_list,
         }
-        return render(request, 'hub/index.html', context)
+        return render(request, 'hub/student_login.html', context)
 
 def model_form_upload(request, job_id):
     job = Job.objects.get(id=job_id)
+    user = request.user
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
 
         if form.is_valid():
             application = form.save(commit=False)  
             application.job = job
+            application.user = user
             application.save()
             form.save_m2m()
             return redirect('job_view', job_id)
@@ -98,4 +108,31 @@ def model_form_upload(request, job_id):
     return render(request, 'hub/apply.html', {
         'form': form,
         'job': job,
+        'user': user,
     })
+
+def login_student(request):
+    username = request.POST.get("username", "")
+    password = request.POST.get("password", "")
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+
+        job_list = Job.objects.all().order_by('deadline')
+        context = {
+            'job_list': job_list,
+        }
+        return render(request, 'hub/index.html', context)
+    else:
+        return HttpResponse("Log in failed. Invalid credentials")
+        
+def login_stu(request):
+    job_list = Job.objects.all().order_by('deadline')
+    context = {
+        'mesage': "Welcome",
+    }
+    return render(request, 'hub/student_login.html', context)
+
+def logout_view(request):
+    logout(request)
+    # Redirect to a home page here.

@@ -45,6 +45,7 @@ class Documents(models.Model):
     resume = models.FileField(upload_to='resumes/')
     cover_letter = models.FileField(upload_to='cover_letters/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     
     #@python_2_unicode_compatible
     def __str__(self):

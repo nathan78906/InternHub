@@ -1,20 +1,14 @@
 {% extends 'hub/base_no_navlinks.html' %}
 
-{% block title %}Student Register{% endblock %}
+{% block title %}Student Login{% endblock %}
 
 {% block middle_content %}
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
-	<h1>Create a new student account</h1>	
+	<h1>Student Login</h1>	
 		<!-- Textfield with Floating Label -->
 
-	<form action="{% url 'register_student' %}" name="register-form" method="post" id="register">
+	<form action="{% url 'login_student' %}" name="login-form" method="post" id="login">
 		{% csrf_token %}
-	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	    <input class="mdl-textfield__input" type="email" id="e-mail" required name="email">
-	    <label class="mdl-textfield__label" for="e-mail">Enter your e-mail</label>
-			<span class="mdl-textfield__error"> Please enter a valid email address</span>
-	  </div>
-	  <br>
 	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	    <input class="mdl-textfield__input" type="text" id="username" required name="username">
 	    <label class="mdl-textfield__label" for="username">Enter your username</label>
@@ -22,35 +16,15 @@
 	  <br>
 	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	    <input class="mdl-textfield__input" type="password" id="password" required name="password" onKeyUp='checkPassword();'>
-	    <label class="mdl-textfield__label" for="password">Enter your new password</label>
+	    <label class="mdl-textfield__label" for="password">Enter your password</label>
 	  </div>
-	  <br>
-	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	    <input class="mdl-textfield__input" type="password" id="confirm-password" required name="password" onKeyUp='checkPassword();'>
-	    <label class="mdl-textfield__label" for="confirm-password">Confirm your new password</label>
-			<span id="password-error>"></span>
-	  </div>
-	  <br>
-	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	    <input class="mdl-textfield__input" type="text" id="first-name" required name="first_name">
-	    <label class="mdl-textfield__label" for="first-name">Enter your first name</label>
-	  </div>
-	  <br>
-	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	    <input class="mdl-textfield__input" type="text" id="last-name" required name="last_name">
-	    <label class="mdl-textfield__label" for="last-name">Enter your last name</label>
-	  </div>
-	  <br>
-	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	    <input class="mdl-textfield__input" type="text" id="school" required name="school">
-	    <label class="mdl-textfield__label" for="school">Enter your school</label>
-	  </div>
-	  <br>
 	  <!-- Raised disabled button -->
+        <br>
 		<input class="mdl-button mdl-js-button mdl-button--raised" id="submit" type="submit" >
 		  
 		</input>
 	</form>
+    <a href="/hub/student/register/">Register an account</a>
 
 {% endblock %}
 
