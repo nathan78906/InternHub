@@ -11,9 +11,17 @@ from django.contrib.auth.models import User
 class Company(models.Model):
     company_name = models.CharField(max_length=50)
     
+    #@python_2_unicode_compatible
+    def __str__(self):
+        return self.company_name
+    
 class Employer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, default=None)
+    
+    #@python_2_unicode_compatible
+    def __str__(self):
+        return self.company.company_name
 
 class Job(models.Model):
     title = models.CharField(max_length=100)
@@ -29,7 +37,7 @@ class Job(models.Model):
 	
     #@python_2_unicode_compatible
     def __str__(self):
-        return self.title + " - " + self.employer
+        return self.title + " - " + self.employer.company.company_name
 
     
 class Student(models.Model):

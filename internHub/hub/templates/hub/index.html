@@ -36,7 +36,7 @@
         {% for job in job_list %}
           <tr>
             <td class="mdl-data-table__cell--non-numeric jobtitle"><a href="/hub/student/job/{{ job.id }}/">{{ job.title }}</td>
-            <td class="mdl-data-table__cell--non-numeric employer">{{ job.employer }}</td>
+            <td class="mdl-data-table__cell--non-numeric employer">{{ job.employer.company.company_name }}</td>
             <td class="mdl-data-table__cell--non-numeric">{{ job.get_skill_display }}</td>
             <td class="mdl-data-table__cell deadline">{{ job.deadline }}</td>
           </tr>

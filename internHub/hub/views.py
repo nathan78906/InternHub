@@ -40,6 +40,14 @@ def index(request):
         'job_list': job_list,
     }
     return render(request, 'hub/index.html', context)
+
+def index_emp(request):
+    employer = Employer.objects.all().filter(user=request.user)
+    job_list = Job.objects.all().filter(employer=employer)
+    context = {
+        'job_list': job_list,
+    }
+    return render(request, 'hub/employer_home.html', context)
     
 def job_view(request, job_id):
     job = Job.objects.get(id=job_id)
@@ -47,6 +55,21 @@ def job_view(request, job_id):
         'job': job,
     }
     return render(request, 'hub/job.html', context)
+
+def job_view_emp(request, job_id):
+    job = Job.objects.get(id=job_id)
+    context = {
+        'job': job,
+    }
+    return render(request, 'hub/job_emp.html', context)
+
+def job_applications(request, job_id):
+    job = Job.objects.get(id=job_id)
+    applications = Documents.objects.filter(job=job)
+    context = {
+        'applications': applications,
+    }
+    return render(request, 'hub/job_applications.html', context)
     
 def job_desc_view(request, job_id):
     job = Job.objects.get(id=job_id)
@@ -61,6 +84,14 @@ def skill_filter(request, skill):
         'job_list': job_list,
     }
     return render(request, 'hub/index.html', context)
+    
+def skill_filter_emp(request, skill):
+    employer = Employer.objects.all().filter(user=request.user)
+    job_list = Job.objects.all().filter(skill=skill, employer=employer)
+    context = {
+        'job_list': job_list,
+    }
+    return render(request, 'hub/employer_home.html', context)
 
 def student_applications(request):
     job_list = Documents.objects.filter(user=request.user)
@@ -89,8 +120,12 @@ def register_employer(request):
             company.save()
         new_employer = Employer(user=new_user, company=company)
         new_employer.save()
-
-        return HttpResponse("Your new employer account was successfully created!")
+        
+        job_list = Job.objects.all().order_by('deadline')
+        context = {
+            'job_list': job_list,
+        }
+        return render(request, 'hub/employer_login.html', context)
         
 def register_student(request):
     try:
@@ -178,7 +213,12 @@ def login_employer(request):
     else:
         return HttpResponse("Log in failed. Invalid credentials")
 
-def logout(request):
+def logout_stu(request):
+    logout(request)
+    # Redirect to a home page here.
+    return redirect('home')
+    
+def logout_emp(request):
     logout(request)
     # Redirect to a home page here.
     return redirect('home')

@@ -1,4 +1,4 @@
-{% extends 'hub/base.html' %}
+{% extends 'hub/base_employer.html' %}
 
 {% block title %}{{ job.title }}{% endblock %}
 
@@ -30,5 +30,5 @@
 {% endblock %}
 
 {% block right_content %}
-  <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.location.href='/hub/student/job/{{ job.id }}/apply'">Apply</button>
+  <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.location.href='/hub/employer/job/{{ job.id }}/applications'">View Applications</button>
 {% endblock %}
