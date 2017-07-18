@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^student/applications/(?P<job_id>[0-9]+)/$', views.job_desc_view, name='job_desc_view'),
     url(r'^register/employer/$', views.register_employer, name='register_employer'),
     url(r'^student/logout/$', views.student_logout, name='student_logout'),
+    url(r'^employer/newjob$', views.create_job_posting, name='create_job_posting'),
 ]

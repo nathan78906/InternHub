@@ -1,0 +1,45 @@
+{% extends 'hub/base.html' %}
+
+{% block title %}New Job{% endblock %}
+
+{% block middle_content %}
+
+  <h1> Create New Job</h1>
+
+
+	<form method="POST" class="viewform">
+  {% csrf_token %}
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  		<input class="mdl-textfield__input" type="text" id="title" required name="title">
+  		<label class="mdl-textfield__label" for="title">Job Title</label>
+		</div>
+ 		<br>
+ 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    		<input class="mdl-textfield__input" type="text" id="employer" required name="employer">
+    		<label class="mdl-textfield__label" for="employer">Employer</label>
+ 		</div>
+ 		<br>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		    <select class="mdl-textfield__input" id="skill" required name="skill">
+		      <option></option>
+		      <option value="J">Junior</option>
+		      <option value="I">Intermediate</option>
+		      <option value="S">Senior</option>
+		    </select>
+		    <label class="mdl-textfield__label" for="skill-level">Skill Level</label>
+		</div>
+		<br>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--multilane"">
+  			<textarea placeholder="Description" rows="5" cols="50" id="description" required name="description"></textarea>
+ 		</div>
+		<br>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			  <p>Apply By</p>
+    		<input class="mdl-textfield__input" type="date" id="date" required name="date">
+    		<label class="mdl-textfield__label" for="date"></label>
+ 		</div>
+ 		<br>
+			<input class="mdl-button mdl-js-button mdl-button--raised" id="submit" type="submit" ></input>
+	</form>
+
+{% endblock %}

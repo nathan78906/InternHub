@@ -16,6 +16,7 @@ from .models import Student
 from .models import Documents
 
 from .forms import DocumentForm
+from .forms import CreateJobForm
 
 def home(request):
     return render(request, 'hub/home.html')
@@ -151,3 +152,29 @@ def student_logout(request):
     logout(request)
     # Redirect to a home page here.
     return redirect('home')
+
+def create_job_posting(request):
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = CreateJobForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            try:
+                title = request.POST['title']
+                employer = request.POST['employer']
+                skill = request.POST['skill']
+                description = request.POST['description']
+                date = request.POST['date']
+            except:
+                return HttpResponse("Missing a required field")
+            else:
+                #Do someting to store it
+                pass
+            # redirect to a new URL:
+            return HttpResponse('New Job Was Created I think :P')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = CreateJobForm()
+    return render(request, 'hub/newJobPage.html', {'form' : form})
