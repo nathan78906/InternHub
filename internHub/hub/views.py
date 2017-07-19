@@ -20,12 +20,19 @@ from .forms import DocumentForm
 def home(request):
     return render(request, 'hub/home.html')
 
+def reg_employer(request):
+    job_list = Job.objects.all().order_by('deadline')
+    context = {
+        'mesage': "Welcome new Employer",
+    }
+    return render(request, 'hub/register_employer.html', context)
+
 def reg_student(request):
     job_list = Job.objects.all().order_by('deadline')
     context = {
         'mesage': "Welcome",
     }
-    return render(request, 'hub/register.html', context)
+    return render(request, 'hub/register_student.html', context)
 
 def index(request):
     job_list = Job.objects.all().order_by('deadline')
@@ -33,6 +40,14 @@ def index(request):
         'job_list': job_list,
     }
     return render(request, 'hub/index.html', context)
+
+def index_emp(request):
+    employer = Employer.objects.all().filter(user=request.user)
+    job_list = Job.objects.all().filter(employer=employer)
+    context = {
+        'job_list': job_list,
+    }
+    return render(request, 'hub/employer_home.html', context)
     
 def job_view(request, job_id):
     job = Job.objects.get(id=job_id)
@@ -40,6 +55,21 @@ def job_view(request, job_id):
         'job': job,
     }
     return render(request, 'hub/job.html', context)
+
+def job_view_emp(request, job_id):
+    job = Job.objects.get(id=job_id)
+    context = {
+        'job': job,
+    }
+    return render(request, 'hub/job_emp.html', context)
+
+def job_applications(request, job_id):
+    job = Job.objects.get(id=job_id)
+    applications = Documents.objects.filter(job=job)
+    context = {
+        'applications': applications,
+    }
+    return render(request, 'hub/job_applications.html', context)
     
 def job_desc_view(request, job_id):
     job = Job.objects.get(id=job_id)
@@ -54,6 +84,14 @@ def skill_filter(request, skill):
         'job_list': job_list,
     }
     return render(request, 'hub/index.html', context)
+    
+def skill_filter_emp(request, skill):
+    employer = Employer.objects.all().filter(user=request.user)
+    job_list = Job.objects.all().filter(skill=skill, employer=employer)
+    context = {
+        'job_list': job_list,
+    }
+    return render(request, 'hub/employer_home.html', context)
 
 def student_applications(request):
     job_list = Documents.objects.filter(user=request.user)
@@ -69,18 +107,25 @@ def register_employer(request):
         email = request.POST['email']
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
-        company_name = request.POST['company_name']
-        title = request.POST['title']
+        company_name = request.POST['company']
     except:
         return HttpResponse("Missing a required field")
     else:
         new_user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, is_staff=False)
         new_user.save()
-        company = Company.objects.filter(company_name=company_name)
+        try:
+            company = Company.objects.get(company_name=company_name)
+        except:
+            company = Company(company_name=company_name)
+            company.save()
         new_employer = Employer(user=new_user, company=company)
         new_employer.save()
-
-        return HttpResponse("Your new employer account was successfully created!")
+        
+        job_list = Job.objects.all().order_by('deadline')
+        context = {
+            'job_list': job_list,
+        }
+        return render(request, 'hub/employer_login.html', context)
         
 def register_student(request):
     try:
@@ -141,13 +186,39 @@ def login_student(request):
         return HttpResponse("Log in failed. Invalid credentials")
         
 def login_stu(request):
-    job_list = Job.objects.all().order_by('deadline')
     context = {
         'mesage': "Welcome",
     }
     return render(request, 'hub/student_login.html', context)
 
-def student_logout(request):
+def login_emp(request):
+    context = {
+        'mesage': "Welcome",
+    }
+    return render(request, 'hub/employer_login.html', context)
+
+def login_employer(request):
+    username = request.POST.get("username", "")
+    password = request.POST.get("password", "")
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+
+        employer = Employer.objects.all().filter(user=request.user)
+        job_list = Job.objects.all().filter(employer=employer)
+        context = {
+            'job_list': job_list,
+        }
+        return render(request, 'hub/employer_home.html', context)
+    else:
+        return HttpResponse("Log in failed. Invalid credentials")
+
+def logout_stu(request):
+    logout(request)
+    # Redirect to a home page here.
+    return redirect('home')
+    
+def logout_emp(request):
     logout(request)
     # Redirect to a home page here.
     return redirect('home')

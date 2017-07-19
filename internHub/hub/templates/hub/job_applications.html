@@ -1,0 +1,47 @@
+{% extends 'hub/base_employer.html' %}
+
+{% block title %}Employer{% endblock %}
+
+{% block other_styles %}
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <style>
+  .full-width {
+    width: 100%;
+  }
+  </style> 
+{% endblock %}
+
+{% block middle_content %}
+  <div id="mdl-table">
+    <table id='mdl-table' class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp full-width">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">First Name</th>
+          <th class="mdl-data-table__cell--non-numeric">Last Name</th>
+          <th class="mdl-data-table__cell--non-numeric">Resume</th>
+          <th class="mdl-data-table__cell--non-numeric">Cover Letter</th>
+        </tr>
+      </thead>
+      <tbody class="list">
+        {% for app in applications %}
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">{{ app.user.first_name }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ app.user.last_name }}</td>
+            <td class="mdl-data-table__cell--non-numeric"><a href="/hub{{ app.resume.url }}" target="_blank">{{ app.resume.name }}</td>
+            <td class="mdl-data-table__cell--non-numeric"><a href="/hub{{ app.cover_letter.url }}" target="_blank">{{ app.cover_letter.name }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+
+
+{% endblock %}
+
+{% block external_scripts %}
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4579/list.min.js'></script>
+  <script src="/static/js/index.js"></script>
+{% endblock %}

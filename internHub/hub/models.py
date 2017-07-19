@@ -8,6 +8,21 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.auth.models import User
 
 # Create your models here.
+class Company(models.Model):
+    company_name = models.CharField(max_length=50)
+    
+    #@python_2_unicode_compatible
+    def __str__(self):
+        return self.company_name
+    
+class Employer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, default=None)
+    
+    #@python_2_unicode_compatible
+    def __str__(self):
+        return self.company.company_name
+
 class Job(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -17,20 +32,14 @@ class Job(models.Model):
         ('S', 'Senior'),
     )
     skill = models.CharField(max_length=1, choices=SKILL_CHOICES)
-    employer = models.CharField(max_length=100)
+    employer = models.ForeignKey(Employer, on_delete=models.CASCADE, default=None)
     deadline = models.DateField(default=datetime.date.today)
 	
     #@python_2_unicode_compatible
     def __str__(self):
-        return self.title + " - " + self.employer
+        return self.title + " - " + self.employer.company.company_name
 
-class Company(models.Model):
-    company_name = models.CharField(max_length=50)
     
-class Employer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, default=None)
-
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     program = models.CharField(max_length=150, null=True)

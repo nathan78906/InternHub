@@ -22,7 +22,7 @@
 {% block middle_content %}
   <div style="padding: 80px 56px" class="content mdl-card mdl-shadow--2dp full-width">
     <h1>{{ job.title }}</h1>
-    <h2>{{ job.employer }}</h2>
+    <h2>{{ job.employer.company.company_name }}</h2>
     <h3>{{ job.get_skill_display }}</h3>
     <p>{{ job.description | linebreaks}}</p>
   </div>
