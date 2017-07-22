@@ -12,11 +12,17 @@
   </style> 
 {% endblock %}
 
+{% block left_content %}
+<a style="float: right;"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="window.location.href='/hub/employer/new_job/'">
+      New Job
+</a>
+{% endblock %}
+
 {% block middle_content %}
   <div id="mdl-table">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable is-upgraded is-focused">
       <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-              <i class="material-icons">search</i>
+              <i class= "material-icons">search</i>
       </label>
       <div class="mdl-textfield__expandable-holder full-width">
               <input class="mdl-textfield__input search full-width" type="text" id="sample6">

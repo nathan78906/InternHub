@@ -15,7 +15,7 @@ from .models import Company
 from .models import Student 
 from .models import Documents
 
-from .forms import DocumentForm
+from .forms import DocumentForm, CreateJobForm
 
 def home(request):
     return render(request, 'hub/home.html')
@@ -169,6 +169,24 @@ def model_form_upload(request, job_id):
         'job': job,
         'user': user,
     })
+    
+def create_job(request):
+    employer = Employer.objects.get(user=request.user);
+    if request.method == 'POST':
+        form = CreateJobForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            job = form.save(commit=False)  
+            job.employer = employer
+            job.save()
+            form.save_m2m()
+            return redirect('index_emp')
+    else:
+        form = CreateJobForm()
+    return render(request, 'hub/new_job.html', {
+        'form': form,
+        'user': request.user,
+    })
 
 def login_student(request):
     username = request.POST.get("username", "")
@@ -222,3 +240,6 @@ def logout_emp(request):
     logout(request)
     # Redirect to a home page here.
     return redirect('home')
+
+def logout_view(request):
+    logout(request)
