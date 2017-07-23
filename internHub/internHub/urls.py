@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from material.frontend import urls as frontend_urls
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^hub/', include('hub.urls')),
