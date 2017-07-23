@@ -20,4 +20,4 @@ from material.frontend import urls as frontend_urls
 urlpatterns = [
     url(r'^hub/', include('hub.urls')),
     url(r'', include(frontend_urls)),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
