@@ -29,7 +29,11 @@
             <td class="mdl-data-table__cell--non-numeric">{{ app.user.first_name }}</td>
             <td class="mdl-data-table__cell--non-numeric">{{ app.user.last_name }}</td>
             <td class="mdl-data-table__cell--non-numeric"><a href="/hub{{ app.resume.url }}" target="_blank">{{ app.resume.name }}</td>
+            {% if app.cover_letter %}
             <td class="mdl-data-table__cell--non-numeric"><a href="/hub{{ app.cover_letter.url }}" target="_blank">{{ app.cover_letter.name }}</td>
+            {% else %}
+            <td class="mdl-data-table__cell--non-numeric">No Cover Letter</td>
+            {% endif %}
           </tr>
         {% endfor %}
       </tbody>
