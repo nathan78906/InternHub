@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^employer/job/(?P<job_id>[0-9]+)/$', views.job_view_emp, name='job_view_emp'),
     url(r'^employer/job/(?P<job_id>[0-9]+)/applications/$', views.job_applications, name='job_applications'),
     url(r'^employer/new_job/$', views.create_job, name='create_job'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
