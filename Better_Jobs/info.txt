@@ -1,3 +1,0 @@
-Student,Code
-user1234,1234
-sample,text
