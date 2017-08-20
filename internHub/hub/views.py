@@ -20,6 +20,11 @@ from .forms import DocumentForm, CreateJobForm
 def home(request):
     return render(request, 'hub/home.html')
 
+def redirect_home(request):
+    logout(request)
+    # Redirect to a home page here.
+    return redirect('home')
+
 def reg_employer(request):
     job_list = Job.objects.all().order_by('deadline')
     context = {

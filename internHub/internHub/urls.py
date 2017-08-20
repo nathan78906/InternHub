@@ -19,7 +19,11 @@ from material.frontend import urls as frontend_urls
 from django.conf import settings
 from django.conf.urls.static import static
 
+from hub import views
+
 urlpatterns = [
     url(r'^hub/', include('hub.urls')),
+    url(r'^admin/logout/$', views.redirect_home, name='redirect_home'),
     url(r'', include(frontend_urls)),
+    url(r'', views.redirect_home, name='redirect_home'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
