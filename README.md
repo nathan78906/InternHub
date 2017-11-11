@@ -4,11 +4,16 @@ We wanted to create a universal job board for co-op students, interns, and emplo
 
 ### Technologies & Tools
 Front-end: Material Design Lite, [Django-Material](http://viewflow.io), HTML, CSS, jQuery  
-Back-end: Django(1.11.3), Python(2.7.6)  
+Back-end: Django(1.11.3), Python(2.7.14, 3.6.3)  
 Sorting/Searching: [List.JS](http://listjs.com)  
 Database: SQLite  
 
 Live Demo: <http://nathan78906.pythonanywhere.com/hub/>
+```
+pip install django
+pip install django-material
+python manage.py runserver
+```
 
 #### Team Members:
 Nathan Seebarran, Osaru Ize-Iyamu, Venkada Prasad, Aiyaz Noor, Salman Sharif, Omid Najmeddini
