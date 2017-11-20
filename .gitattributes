@@ -1,3 +1,4 @@
 internHub/hub/static/* linguist-vendored
 doc/* linguist-documentation
 images/* linguist-documentation
+internHub/hub/templates/* linguist-language=Python
